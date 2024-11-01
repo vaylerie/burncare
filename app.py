@@ -9,7 +9,7 @@ from api.user import UserResource
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/burncare'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/burncare?ssl_disabled=1'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 from models import db  # Import db after app is created

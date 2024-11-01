@@ -9,12 +9,11 @@ class UserResource(Resource):
         nama = data.get("nama")
         role = data.get("role")
         password = data.get("password")
-        token = data.get("token")
 
         if User.query.filter_by(username=username).first():
             return {"data": "Registered Failed"}, 400
 
-        new_user = User(username=username, nama=nama, role=role, token=token)
+        new_user = User(username=username, nama=nama, role=role)
         new_user.set_password(password)
         db.session.add(new_user)
         db.session.commit()
