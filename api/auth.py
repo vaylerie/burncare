@@ -8,6 +8,7 @@ def generate_token():
 
 class AuthResource(Resource):
     def post(self):
+        #login
         data = request.get_json()
         username = data.get("username")
         password = data.get("password")
@@ -33,3 +34,33 @@ class AuthResource(Resource):
             }, 200
         else:
             return {"message": "Login Failed"}, 401
+        
+    def put(self):
+        #edit
+        token = request.headers.get("X-API-TOKEN")
+        data = request.get_json()
+        username = data.get("username")
+        nama = data.get("nama")
+        password = data.get("password")
+
+        user = User.query.filter_by(username=username).first()
+        print(f"name {user.nama}, {nama}")
+        print(f"password {user.password}, {password}")
+        print(f"username {user.username}, {username}")
+        if user and user.token == token:
+            user.nama = nama
+            user.username = username
+            user.set_password(password)
+            db.session.commit()
+            return {"data": "User  updated successfully"}, 200
+        return {"data": "Failed to Update User"}, 400
+
+    def delete(self):
+        # Logout User
+        token = request.headers.get("X-API-TOKEN")
+        user = User.query.filter_by(token=token).first()
+        if user:
+            user.token = None  # Invalidate the token
+            db.session.commit()
+            return {"data": "Logout Successfully"}, 200
+        return {"data": "Logout Failed"}, 401
