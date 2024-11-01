@@ -10,7 +10,6 @@
     "nama": "Jonathan Kamagi",
     "role": "General",
     "password": "rahasia",
-    "token": "ajsepfqwuiewqdklxa"
 }
 ```
 

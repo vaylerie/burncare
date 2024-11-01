@@ -6,16 +6,16 @@ class UserResource(Resource):
     def post(self):
         data = request.get_json()
         username = data.get("username")
+        password = data.get("password")
         nama = data.get("nama")
         role = data.get("role")
-        password = data.get("password")
 
         if User.query.filter_by(username=username).first():
-            return {"data": "Registered Failed"}, 400
+            return {"message": "Username already exists."}, 400
 
         new_user = User(username=username, nama=nama, role=role)
         new_user.set_password(password)
         db.session.add(new_user)
         db.session.commit()
 
-        return {"data": "User  created successfully"}, 201
+        return {"message": "User registered successfully."}, 201
