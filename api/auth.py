@@ -38,21 +38,23 @@ class AuthResource(Resource):
     def put(self):
         #edit
         token = request.headers.get("X-API-TOKEN")
-        data = request.get_json()
-        username = data.get("username")
-        nama = data.get("nama")
+        data = request.json
+        username = data.get('username')
+        nama = data.get('nama')
         password = data.get("password")
 
-        user = User.query.filter_by(username=username).first()
-        print(f"name {user.nama}, {nama}")
-        print(f"password {user.password}, {password}")
-        print(f"username {user.username}, {username}")
-        if user and user.token == token:
-            user.nama = nama
-            user.username = username
-            user.set_password(password)
+        user = User.query.filter_by(token = token).first()
+        
+        if user:
+            if nama is not None:
+                user.nama = nama
+            if username is not None:
+                user.username = username
+            if password is not None:
+                user.set_password(password)
             db.session.commit()
             return {"data": "User  updated successfully"}, 200
+        
         return {"data": "Failed to Update User"}, 400
 
     def delete(self):
@@ -64,3 +66,4 @@ class AuthResource(Resource):
             db.session.commit()
             return {"data": "Logout Successfully"}, 200
         return {"data": "Logout Failed"}, 401
+    
