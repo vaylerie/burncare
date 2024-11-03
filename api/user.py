@@ -20,19 +20,3 @@ class UserResource(Resource):
 
         return {"message": "User registered successfully."}, 201
     
-    def put(self):
-        #edit
-        token = request.headers.get("X-API-TOKEN")
-        data = request.get_json()
-        username = data.get("username")
-        nama = data.get("nama")
-        password = data.get("password")
-
-        user = User.query.filter_by(username=username).first()
-        if user and user.token == token:
-            user.nama = nama
-            user.username = username
-            user.set_password(password)
-            db.session.commit()
-            return {"data": "User  updated successfully"}, 200
-        return {"data": "Failed to Update User"}, 400
