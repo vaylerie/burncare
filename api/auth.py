@@ -62,8 +62,7 @@ class AuthResource(Resource):
         token = request.headers.get("X-API-TOKEN")
         user = User.query.filter_by(token=token).first()
         if user:
-            user.token = None  # Invalidate the token
+            user.token = None  
             db.session.commit()
             return {"data": "Logout Successfully"}, 200
         return {"data": "Logout Failed"}, 401
-    

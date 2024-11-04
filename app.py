@@ -6,6 +6,7 @@ from PIL import Image
 from flask_restful import Api, Resource
 from api.auth import AuthResource
 from api.user import UserResource
+from api.classification import ClassifyResource
 
 app = Flask(__name__)
 
@@ -20,6 +21,7 @@ api = Api(app)
 # Define API resources
 api.add_resource(UserResource, '/api/users')
 api.add_resource(AuthResource, '/api/auth/login', '/api/auth/edit', '/api/auth/logout')
+api.add_resource(ClassifyResource, '/api/upload')
 
 
 if __name__ == '__main__':
