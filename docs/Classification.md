@@ -9,8 +9,7 @@
 ### Request Body :
 ```json
 {
-    "waktu_upload": "TimeStamp",
-    "file_path": "String",
+    image: img_file
 }
 ```
 
@@ -19,6 +18,7 @@
 {
     "data": {
         "derajat_klasifikasi": "Int",
+        "confidence_score" : "Float",
         "deskripsi": "String"
     }
 }

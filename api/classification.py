@@ -1,10 +1,12 @@
-from flask import request, jsonify
+from flask import Flask, request, jsonify
 from flask_restful import Resource
 from models import User, db, UploadIdentifikasi, HasilUpload
 from keras.models import load_model
 from PIL import Image
 import numpy as np
 import os
+
+app = Flask(__name__)
 
 model = load_model('model.h5', compile=False)
 labels = [1, 2, 3]
@@ -26,6 +28,7 @@ def prediction(file_path):
     return confidence_score, derajat_klasifikasi
 
 class ClassifyResource(Resource):
+    @app.route('/api/upload', methods=['POST'])
     def post(self):
         token = request.headers.get("X-API-TOKEN")
         if not token:

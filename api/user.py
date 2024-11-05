@@ -1,8 +1,11 @@
-from flask import request
+from flask import Flask, request
 from flask_restful import Resource
 from models import User, db
 
+app = Flask(__name__)
+
 class UserResource(Resource):
+    @app.route('/api/users', methods=['POST'])
     def post(self):
         data = request.get_json()
         username = data.get("username")

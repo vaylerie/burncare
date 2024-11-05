@@ -1,12 +1,15 @@
-from flask import request
+from flask import Flask, request
 from flask_restful import Resource
 from models import User, db
 import uuid
+
+app = Flask(__name__)
 
 def generate_token():
     return str(uuid.uuid4())
 
 class AuthResource(Resource):
+    @app.route('/api/auth/login', methods=['POST'])
     def post(self):
         #login
         data = request.get_json()
@@ -34,7 +37,8 @@ class AuthResource(Resource):
             }, 200
         else:
             return {"message": "Login Failed"}, 401
-        
+    
+    @app.route('/api/auth/edit', methods=['PUT'])
     def put(self):
         #edit
         token = request.headers.get("X-API-TOKEN")
@@ -57,6 +61,7 @@ class AuthResource(Resource):
         
         return {"data": "Failed to Update User"}, 400
 
+    @app.route('/api/auth/logout', methods=['DELETE'])
     def delete(self):
         # Logout User
         token = request.headers.get("X-API-TOKEN")
