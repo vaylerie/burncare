@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_restful import Resource
-from models import User, db, UploadIdentifikasi, HasilUpload
+from models import User, db, UploadIdentifikasi, HasilUpload, RiwayatIdentifikasi
 from keras.models import load_model
 from PIL import Image
 import numpy as np
@@ -60,6 +60,11 @@ class ClassifyResource(Resource):
                                        confidence_score=confidence_score,
                                        upload_identifikasi_id=upload_identifikasi_id)
             db.session.add(hasil_record)
+            db.session.commit()
+
+            history_record = RiwayatIdentifikasi(user_id=user_id,
+                                                 hasil_upload_id=hasil_record.id)
+            db.session.add(history_record)
             db.session.commit()
 
             return {"data": 
