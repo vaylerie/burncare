@@ -11,8 +11,7 @@
 {
     "data": {
         "username": "String",
-        "nama": "String",
-        "riwayat_identifikasi": ""
+        "nama": "String"
     }
 }
 ```
