@@ -5,6 +5,7 @@ from keras.models import load_model
 from PIL import Image
 import numpy as np
 import os
+import logging
 
 app = Flask(__name__)
 
@@ -34,12 +35,12 @@ class ClassifyResource(Resource):
         if not token:
             return {"data": "Unauthorized"}, 401
         user = User.query.filter_by(token=token).first()
+        user_id = user.id
 
         if 'image' not in request.files:
             return {"data": "Failed to upload image"}, 400
 
         file = request.files['image']
-        print(file)
         if file.filename == '':
             return {"data": "Failed to upload image"}, 400
 
@@ -47,14 +48,17 @@ class ClassifyResource(Resource):
             file_path = os.path.join('static/img/predict_img/', file.filename)
             file.save(file_path)
 
-            upload_record = UploadIdentifikasi(file_path=file_path)
+            upload_record = UploadIdentifikasi(file_path=file_path,
+                                               user_id=user_id)
             db.session.add(upload_record)
             db.session.commit()
 
+            upload_identifikasi_id = upload_record.id
             confidence_score, derajat_klasifikasi = prediction(file_path)
 
             hasil_record = HasilUpload(derajat_klasifikasi=derajat_klasifikasi, 
-                                       confidence_score=confidence_score)
+                                       confidence_score=confidence_score,
+                                       upload_identifikasi_id=upload_identifikasi_id)
             db.session.add(hasil_record)
             db.session.commit()
 
@@ -66,4 +70,5 @@ class ClassifyResource(Resource):
             }, 200
 
         except Exception as e:
+            logging.error(f"Error occurred: {e}")
             return {"data": "Failed to upload image"}, 500
