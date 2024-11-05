@@ -6,13 +6,6 @@
 ### Request Header :
 - X-API-TOKEN: Token (Mandatory)
 
-### Request Body :
-```json
-{
-    "username": "Jonathan Alz"
-}
-```
-
 ### Response Body (Success) :
 ```json
 {
@@ -20,6 +13,7 @@
         "waktu_upload": "TimeStamp",
         "file_path": "String",
         "derajat_klasifikasi": "Int",
+        "confidence_score": "Float",
         "deskripsi": "String"
     }
 }
