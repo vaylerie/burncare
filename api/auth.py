@@ -15,15 +15,11 @@ class AuthResource(Resource):
         data = request.get_json()
         username = data.get("username")
         password = data.get("password")
-        print(f'Password input: {password}')
 
         user = User.query.filter_by(username=username).first()
         
         if user is None:
             return {"message": "Login Failed"}, 401
-
-        print(f"Stored hash: {user.password}")
-        print('Check password result:', user.check_password(password))
 
         if user.check_password(password):
             user.token = generate_token()

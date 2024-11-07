@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/flowbite@1.5.0/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-md p-8 space-y-3 bg-white rounded-xl shadow-md">
+        <h1 class="text-center text-2xl font-bold">Login</h1>
+        <form id="loginForm" class="space-y-5">
+            <div>
+                <label for="username" class="block mb-1 text-sm font-medium text-gray-700">Username</label>
+                <input type="text" id="username" name="username" required class="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Your Username">
+            </div>
+            <div>
+                <label for="password" class="block mb-1 text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" name="password" required class="block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="********">
+            </div>
+            <button type="submit" class="w-full p-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
+        </form>
+        <p class="text-sm text-center text-gray-600">
+            Don't have an account? <a href="#" class="text-blue-600 hover:underline">Sign up</a>
+        </p>
+    </div>
+    <script src="https://unpkg.com/flowbite@1.5.0/dist/flowbite.min.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Handle successful login (e.g., redirect or show a success message)
+                    console.log('Login successful:', data);
+                    // Store the token in localStorage or sessionStorage
+                    localStorage.setItem('token', data.data.token);
+                    // Redirect to another page or perform other actions
+                    window.location.href = '/index'; // Change this to your desired route
+                } else {
+                    // Handle errors (e.g., show an error message)
+                    console.error('Login failed:', data.message);
+                    alert(data.message); // Display the error message
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

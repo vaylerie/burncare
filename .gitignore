@@ -1,0 +1,37 @@
+# Node modules
+node_modules/
+
+# Tailwind CSS build output
+public/css/*-generated.css
+dist/
+build/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Mac system files
+.DS_Store
+
+# Editor or IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Optional: If you're using PostCSS, ignore its cache files
+.postcssrc
+.postcssrc.js
+
+# Temporary files
+*.tmp
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Tailwind config file (if customized per developer, otherwise keep it tracked)
+# tailwind.config.js

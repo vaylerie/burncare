@@ -8,13 +8,13 @@ from api.history import HistoryResource
 from api.admin import AdminResource
 from api.userdata import UserDataResource
 from api.adminhistory import AdminHistory
+from models import db
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="app/templates")
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/burncare?ssl_disabled=1'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-from models import db 
 db.init_app(app)
 
 api = Api(app)
@@ -27,6 +27,15 @@ api.add_resource(HistoryResource, '/api/history')
 api.add_resource(AdminResource, '/api/admin/login')
 api.add_resource(UserDataResource, '/api/admin/userdata')
 api.add_resource(AdminHistory, '/api/admin/history')
+
+@app.route("/")
+@app.route("/index")
+def index():
+	return render_template("index.html")
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
 if __name__ == '__main__':
     app.run(debug=True)

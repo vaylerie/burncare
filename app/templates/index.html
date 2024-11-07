@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burn Care</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <nav
+        class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <button type="button"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get
+                    started</button>
+                <button data-collapse-toggle="navbar-sticky" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <ul
+                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                            aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section
+        class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply">
+        <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+            <h1 data-aos="fade-up" data-aos-duration="1000" class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">We
+                invest in the world’s potential</h1>
+            <p  data-aos="fade-up" data-aos-duration="1000" class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Here at Flowbite we focus on
+                markets where technology, innovation, and capital can unlock long-term value and drive economic growth.
+            </p>
+            <div data-aos="fade-up" data-aos-duration="1000" class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+                <a href="#"
+                    class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                    Get started
+                    <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg>
+                </a>
+                <a href="#"
+                    class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
+                    Learn more
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container mt-10 mb-8 p-6">
+            <h2 data-aos="fade-up" data-aos-duration="700" class="text-2xl font-bold text-center mb-6">Our Services</h2>
+            <div  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div data-aos="fade-up" data-aos-duration="800" class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://via.placeholder.com/300" alt="Service 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Service 1</h3>
+                        <p class="text-gray-600">Description of service 1. This is a brief overview of what this service
+                            offers.</p>
+                        <button data-modal-toggle="modal-service-1"
+                            class="mt-4 w-auto py-2 px-4 text-white bg-blue-600 rounded-md hover:bg-blue-700">Learn
+                            More</button>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div data-aos="fade-up" data-aos-duration="800" class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://via.placeholder.com/300" alt="Service 2" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Service 2</h3>
+                        <p class="text-gray-600">Description of service 2. This is a brief overview of what this service
+                            offers.</p>
+                        <button data-modal-toggle="modal-service-2"
+                            class="mt-4 w-auto py-2 px-4 text-white bg-blue-600 rounded-md hover:bg-blue-700">Learn
+                            More</button>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div data-aos="fade-up" data-aos-duration="800" class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://via.placeholder.com/300" alt="Service 3" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold">Service 3</h3>
+                        <p class="text-gray-600">Description of service 3. This is a brief overview of what this service
+                            offers.</p>
+                        <button data-modal-toggle="modal-service-3"
+                            class="mt-4 w-auto py-2 px-4 text-white bg-blue-600 rounded-md hover:bg-blue-700">Learn
+                            More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modals -->
+            <!-- Modal for Service 1 -->
+            <div id="modal-service-1" tabindex="-1"
+                class="hidden fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0">
+                <div class="relative w-full h-full max-w-2xl md:h-auto">
+                    <div class="bg-white rounded-lg shadow">
+                        <div class="flex justify-between items-center p-4 border-b">
+                            <h3 class="text-lg font-semibold">Service 1 Details</h3>
+                            <button type="button"
+                                class="text-gray-400 hover:bg-gray-200 rounded-lg p-1.5 ml-auto inline-flex items-center"
+                                data-modal-toggle="modal-service-1">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10 9.293l4.293-4.293 1.414 1.414L11.414 10l4.293 4.293-1.414 1.414L10 11.414l-4.293 4.293-1.414-1.414L8.586 10 4.293 5.707 5.707 4.293 10 8.586z"
+                                        clip-rule=" evenodd"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <p>Here are more details about Service 1. This section can include additional information,
+                                images, or any other relevant content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Service 2 -->
+            <div id="modal-service-2" tabindex="-1"
+                class="hidden fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0">
+                <div class="relative w-full h-full max-w-2xl md:h-auto">
+                    <div class="bg-white rounded-lg shadow">
+                        <div class="flex justify-between items-center p-4 border-b">
+                            <h3 class="text-lg font-semibold">Service 2 Details</h3>
+                            <button type="button"
+                                class="text-gray-400 hover:bg-gray-200 rounded-lg p-1.5 ml-auto inline-flex items-center"
+                                data-modal-toggle="modal-service-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10 9.293l4.293-4.293 1.414 1.414L11.414 10l4.293 4.293-1.414 1.414L10 11.414l-4.293 4.293-1.414-1.414L8.586 10 4.293 5.707 5.707 4.293 10 8.586z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <p>Here are more details about Service 2. This section can include additional information,
+                                images, or any other relevant content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Service 3 -->
+            <div id="modal-service-3" tabindex="-1"
+                class="hidden fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0">
+                <div class="relative w-full h-full max-w-2xl md:h-auto">
+                    <div class="bg-white rounded-lg shadow">
+                        <div class="flex justify-between items-center p-4 border-b">
+                            <h3 class="text-lg font-semibold">Service 3 Details</h3>
+                            <button type="button"
+                                class="text-gray-400 hover:bg-gray-200 rounded-lg p-1.5 ml-auto inline-flex items-center"
+                                data-modal-toggle="modal-service-3">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10 9.293l4.293-4.293 1.414 1.414L11.414 10l4.293 4.293-1.414 1.414L10 11.414l-4.293 4.293-1.414-1.414L8.586 10 4.293 5.707 5.707 4.293 10 8.586z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="p-6">
+                            <p>Here are more details about Service 3. This section can include additional information,
+                                images, or any other relevant content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-gray-800 text-white mt-10">
+        <div class="max-w-screen-xl mx-auto p-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h2 class="text-lg font-semibold">Follow Us</h2>
+                    <div class="flex space-x-4 mt-2">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10S17.52 2 12 2zm1.5 17.5h-3v-6h3v6zm0-7.5h-3V8h3v4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10S17.52 2 12 2zm1.5 17.5h-3v-6h3v6zm0-7.5h-3V8h3v4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10S17.52 2 12 2zm1.5 17.5h-3v-6h3v6zm0-7.5h-3V8h3v4z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-lg font-semibold">Contact Us</h2>
+                    <p class="mt-2">Email: info@example.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="mt-6 border-t border-gray-700 pt-4 text-center">
+                <p class="text-sm">© 2023 Your Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@1.5.0/dist/flowbite.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
