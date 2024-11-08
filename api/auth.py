@@ -19,7 +19,7 @@ class AuthResource(Resource):
         user = User.query.filter_by(username=username).first()
         
         if user is None:
-            return {"message": "Login Failed"}, 401
+            return {"message": "Username is not found"}, 401
 
         if user.check_password(password):
             user.token = generate_token()
@@ -38,7 +38,7 @@ class AuthResource(Resource):
     def put(self):
         #edit
         token = request.headers.get("X-API-TOKEN")
-        data = request.json
+        data = request.json()
         username = data.get('username')
         nama = data.get('nama')
         password = data.get("password")

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for
 import requests
 from flask_restful import Api
 from api.auth import AuthResource
@@ -29,13 +29,16 @@ api.add_resource(UserDataResource, '/api/admin/userdata')
 api.add_resource(AdminHistory, '/api/admin/history')
 
 @app.route("/")
-@app.route("/index")
 def index():
 	return render_template("index.html")
 
 @app.route("/login")
 def login():
     return render_template("login.html")
+
+@app.route("/user")
+def user():
+    return render_template("user/index.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
