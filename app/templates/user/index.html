@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burn Care</title>
+    <title>BurnCare</title>
     <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.min.css" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -15,18 +15,38 @@
     <nav
         class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+            <a href=/ class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-bold whitespace-nowrap text-red-700 dark:text-white">Burn<span
+                        class="text-gray-900">Care+</span></span>
             </a>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get
-                    started</button>
+                <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                    <button type="button" class="flex text-sm bg-transparent rounded-full md:me-0" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                      <span class="sr-only">Pengguna</span>
+                      <svg class="w-[32px] h-[32px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z" clip-rule="evenodd"/>
+                      </svg>                                    
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+                      <div class="px-4 py-3">
+                        <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+                        <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+                      </div>
+                      <ul class="py-2" aria-labelledby="user-menu-button">
+                        <li>
+                          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profil</a>
+                        </li>
+                        <li>
+                          <a href="#" class="block px-4 py-2 text-sm text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Keluar</a>
+                        </li>
+                      </ul>
+                    </div>
+                </div>
                 <button data-collapse-toggle="navbar-sticky" type="button"
                     class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                     aria-controls="navbar-sticky" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
+                    <span class="sr-only">Buka menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 17 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -36,23 +56,19 @@
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                 <ul
-                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    class="flex flex-col font-medium md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-200 md:dark:bg-gray-200 dark:border-gray-700">
                     <li>
                         <a href="#"
-                            class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                            aria-current="page">Home</a>
+                            class="block py-2 px-3 text-red-900 bg-gray-200 md:bg-transparent md:text-gray-700 md:p-0"
+                            aria-current="page">Beranda</a>
                     </li>
                     <li>
                         <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                            class="block py-2 px-3 text-gray-900 rounded hover:text-red-900 md:hover:bg-transparent md:hover:text-gray-700 md:p-0 dark:hover:text-gray-500 dark:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-white">Riwayat</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                        <a onclick="document.getElementById('footer').scrollIntoView({ behavior: 'smooth' })"
+                            class="block py-2 px-3 text-gray-900 rounded hover:text-red-900 md:hover:bg-transparent md:hover:text-gray-700 md:p-0 dark:hover:text-gray-500 dark:text-white dark:hover:bg-white dark:hover:text-white md:dark:hover:bg-transparent dark:border-white">Tentang</a>
                     </li>
                 </ul>
             </div>
@@ -60,13 +76,56 @@
     </nav>
 
 
-    <section>
+    <section
+        class="bg-white dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+            <div href="#"
+                class="inline-flex items-center py-8 px-1">
+            </div>
+            <h1 data-aos="fade-up" data-aos-duration="1000"
+                class="mb-8 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">
+                Selamat datang di BurnCare+</h1>
+            <p data-aos="fade-up" data-aos-duration="1200"
+                class="mb-2 text-lg font-normal text-gray-600 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200"><span
+                    class="font-bold">BurnCare+</span> adalah solusi kesehatan berbasis teknologi yang dirancang untuk
+                membantu Anda mengenali dan mengidentifikasi tingkat keparahan luka bakar secara cepat, akurat, dan
+                mudah digunakan.</p>
+            <p data-aos="fade-up" data-aos-duration="1400"
+                class="text-lg font-normal text-gray-600 lg:text-sm sm:px-16 lg:px-48 dark:text-gray-200">Mulailah
+                dengan mengunggah foto luka bakar. Pastikan foto diambil dengan pencahayaan yang baik untuk hasil yang
+                lebih akurat.</p>
+            <p data-aos="fade-up" data-aos-duration="1400"
+                class="mb-8 text-lg font-normal text-gray-600 lg:text-sm sm:px-16 lg:px-48dark:text-gray-200">Dalam hitungan detik, Anda akan menerima informasi termasuk kategori (derajat 1, 2, atau 3) dan rekomendasi perawatan yang sesuai.</p>
+                <form class="w-full max-w-md mx-auto">
+                    <div data-aos="fade-up" data-aos-duration="1600" class="relative">
+                        <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-white" for="file_input">Unggah gambar di sini</label>
+                        
+                        <div class="flex items-center">
+                            <input
+                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                aria-describedby="file_input_help" id="file_input" type="file">
+                            <button type="submit" class="bg-transparent border border-gray-900 hover:bg-gray-900 font-medium rounded-lg text-sm px-4 py-2 text-gray-900 hover:text-white ml-2">
+                                Unggah
+                            </button>
+                        </div>
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">PNG, JPG, atau JPEG</p>
+                    </div>
+                </form>
+        </div>
+        <div
+            class="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-900 w-full h-full absolute top-0 left-0 z-0">
+        </div>
+    </section>
+
+
+    <section id="tentang">
         <div class="container mt-10 mb-8 p-6">
-            <h2 data-aos="fade-up" data-aos-duration="700" class="text-2xl font-bold text-center mb-6">Our Services</h2>
-            <div  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h2 data-aos="fade-up" data-aos-duration="700" class="text-2xl font-bold text-center mb-6">Kenali 3 Tingkat
+                Keparahan pada Luka Bakar</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Card 1 -->
                 <div data-aos="fade-up" data-aos-duration="800" class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://via.placeholder.com/300" alt="Service 1" class="w-full h-48 object-cover">
+                    <img src="/static/img/degree/1.jpg" alt="Service 1" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold">Service 1</h3>
                         <p class="text-gray-600">Description of service 1. This is a brief overview of what this service
@@ -78,7 +137,7 @@
                 </div>
                 <!-- Card 2 -->
                 <div data-aos="fade-up" data-aos-duration="800" class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://via.placeholder.com/300" alt="Service 2" class="w-full h-48 object-cover">
+                    <img src="/static/img/degree/2.jpg" alt="Service 2" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold">Service 2</h3>
                         <p class="text-gray-600">Description of service 2. This is a brief overview of what this service
@@ -90,7 +149,7 @@
                 </div>
                 <!-- Card 3 -->
                 <div data-aos="fade-up" data-aos-duration="800" class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="https://via.placeholder.com/300" alt="Service 3" class="w-full h-48 object-cover">
+                    <img src="/static/img/degree/3.jpg" alt="Service 3" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold">Service 3</h3>
                         <p class="text-gray-600">Description of service 3. This is a brief overview of what this service
@@ -184,7 +243,7 @@
     </section>
 
 
-    <footer class="bg-gray-800 text-white mt-10">
+    <footer id="footer" class="bg-gray-800 text-white mt-10">
         <div class="max-w-screen-xl mx-auto p-6">
             <div class="flex justify-between items-center">
                 <div>
@@ -192,17 +251,20 @@
                     <div class="flex space-x-4 mt-2">
                         <a href="#" class="text-gray-400 hover:text-white">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10S17.52 2 12 2zm1.5 17.5h-3v-6h3v6zm0-7.5h-3V8h3v4z"/>
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10S17.52 2 12 2zm1.5 17.5h-3v-6h3v6zm0-7.5h-3V8h3v4z" />
                             </svg>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-white">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10S17.52 2 12 2zm1.5 17.5h-3v-6h3v6zm0-7.5h-3V8h3v4z"/>
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10S17.52 2 12 2zm1.5 17.5h-3v-6h3v6zm0-7.5h-3V8h3v4z" />
                             </svg>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-white">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10S17.52 2 12 2zm1.5 17.5h-3v-6h3v6zm0-7.5h-3V8h3v4z"/>
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10 5.52 0 10-4.48 10-10S17.52 2 12 2zm1.5 17.5h-3v-6h3v6zm0-7.5h-3V8h3v4z" />
                             </svg>
                         </a>
                     </div>
