@@ -38,7 +38,7 @@
                           <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Profil</a>
                         </li>
                         <li>
-                          <a href="#" class="block px-4 py-2 text-sm text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Keluar</a>
+                          <a href="#" onclick="logout()" class="block px-4 py-2 text-sm text-red-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Keluar</a>
                         </li>
                       </ul>
                     </div>
@@ -281,6 +281,29 @@
         </div>
     </footer>
 
+    <script>
+        async function logout() {
+            try {
+                const response = await fetch('/api/auth/logout', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-TOKEN': localStorage.getItem('token')
+                    },
+                });
+
+                if (response.ok) {
+                    window.location.href = '/'
+                } else {
+                    const errorData = await response.json();
+                    alert('Logout failed: ' + errorData.data);
+                }
+            } catch (error) {
+                console.error('Error during logout: ', error);
+                alert('An error occurred while logging out. Please try again');
+            }
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@1.5.0/dist/flowbite.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
